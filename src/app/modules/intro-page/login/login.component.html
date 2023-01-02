@@ -1,0 +1,24 @@
+<div class="login">
+    <mat-card class="login-card">
+        <mat-card-title>Welcome back</mat-card-title>
+        <mat-card-content>Please enter your credentials.</mat-card-content>
+        <form class="form">
+            <mat-form-field color="accent" class="input">
+                <mat-label>Email Adress</mat-label>
+                <input type="email" matInput placeholder="Ex. name@example.com">
+            </mat-form-field>
+            <mat-form-field color="accent" class="input">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Write your password here">
+            </mat-form-field>
+            <div class="password-options">
+                <mat-checkbox>Remember for 30 days</mat-checkbox>
+                <p>Forgot password</p>
+            </div>
+            <button type="button" mat-raised-button color="accent">Sign in</button>
+            <div class="signup-method">
+                <mat-card-content>Don't have an account yet? <a routerLink="/signup" class="logo-marking">Sign up</a></mat-card-content>
+            </div>
+        </form>
+    </mat-card>
+</div>

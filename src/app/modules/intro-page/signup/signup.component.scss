@@ -1,0 +1,57 @@
+@import "src/assets/styles/mixins";
+
+.signup {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .signup-card {
+        width: 22rem;
+        padding: 3rem 2rem;
+
+        .mat-card-title, .mat-card-content{
+            text-align: center;
+        }
+
+        .form {
+            margin-top: 1.5rem;
+            
+            .input {
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+
+            .login-method {
+                .mat-card-content {
+                    text-align: center;
+                    padding-top: 1rem;
+
+                    a {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .signup {
+        width: 90%;
+        margin: auto;
+        position: relative;
+
+        .signup-card {
+            .mat-card-title {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

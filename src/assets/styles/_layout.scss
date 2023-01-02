@@ -1,0 +1,10 @@
+@import "variables";
+
+body {
+    font-family: 'Work Sans', sans-serif !important;
+    background-color: $background;
+}
+
+.logo-marking {
+    color: $logo-mark;
+}

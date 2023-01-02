@@ -1,0 +1,84 @@
+@import "src/assets/styles/variables";
+
+.login {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .login-card {
+        width: 22rem;
+        padding: 3rem 2rem;
+
+        .mat-card-title,
+        .mat-card-content {
+            text-align: center;
+        }
+
+        .form {
+            margin-top: 1.5rem;
+
+            .password-options {
+                font-size: .8rem;
+                font-weight: 500;
+                padding: .5rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                p {
+                    cursor: pointer;
+                    color: $logo-mark;
+                }
+            }
+
+            .signup-method {
+                .mat-card-content {
+                    text-align: center;
+                    padding-top: 1rem;
+
+                    a {
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .input {
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .login {
+        width: 90%;
+        margin: auto;
+        position: relative;
+
+        .login-card {
+            .mat-card-title {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 390px) {
+    .login {
+        .login-card {
+            .form {
+                .password-options {
+                    display: block;
+                }
+            }
+        }
+    }
+}
