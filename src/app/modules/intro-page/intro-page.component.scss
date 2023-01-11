@@ -1,45 +1,129 @@
 @import "src/assets/styles/mixins";
+@import "src/assets/styles/variables";
 
-@include underline-decor(330px, 0.4rem, 14px);
+@include underline-decor(105%, 0.8rem, 0.875rem);
 
-.example-spacer {
+$radius-panels: .9375rem;
+
+.spacer {
     flex: 1 1 auto;
 }
 
 .mat-toolbar {
-    background: white;
-    border-bottom: 2px solid #EFF1F6;
+    background: $white;
+    border-bottom: 2px solid $border;
 }
 
-.button-row {
-    button {
-        margin-left: 0.5rem;
-    }
+.navigation-btn {
+    display: flex;
+    gap: .5rem;
 }
 
 .dashboard {
-    width: 90%;
+    width: 95%;
     margin: auto;
     text-align: center;
+    padding-bottom: 4rem;
 
     h1 {
         max-width: 800px;
         margin: 5rem auto 3rem auto;
         font-size: 5rem;
     }
-}
 
-@media (max-width: 875px) {
-    .dashboard {
-        h1 {
-            font-size: 3rem;
+    .images {
+        max-width: 1400px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
+        padding-top: 2rem;
 
-            .underline-decor {
-                padding: .7rem;
+        .tryit-btn {
+            position: relative;
+
+            .decor-btn {
+                border-radius: $radius-panels;
+                background-color: $grey-1;
+                border: 2px solid $black;
+                padding: 1rem .5rem .3rem .5rem;
+                width: 70%;
+                margin: auto;
+
+                p {
+                    text-align: center;
+                    font-size: .7rem;
+                }
+
+                .mat-raised-button {
+                    width: 90%;
+                    padding: .3rem;
+                }
             }
 
-            .underline-decor::before {
-                width: 190px;
+            .motto-img {
+                position: absolute;
+                width: 100%;
+                bottom: 0;
+            }
+        }
+
+        div:not(.tryit-btn) {
+            align-self: flex-end;
+        }
+
+        div {
+            flex: 1;
+
+            img {
+                border-radius: 1.25rem;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .dashboard {
+        padding-bottom: 2px;
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        .images {
+            flex-direction: column;
+            position: relative;
+
+            .tryit-btn {
+                .decor-btn {
+                    margin-bottom: 2rem;
+                    width: unset;
+                }
+
+                .motto-img {
+                    position: unset;
+                }
+            }
+
+            div:not(.tryit-btn),
+            .tryit-btn {
+                align-self: center;
+            }
+
+            div {
+                width: 60%;
+                padding-bottom: 1rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .dashboard {
+        .images {
+            div {
+                width: 100%;
             }
         }
     }
@@ -49,24 +133,10 @@
     .dashboard {
         h1 {
             font-size: 2rem;
-
-            .underline-decor {
-                padding: .9rem;
-            }
-
-            .underline-decor::before {
-                width: 130px;
-            }
         }
 
         h3 {
             font-size: .9rem;
         }
-    }
-}
-
-@media (max-width: 185px) {
-    .underline-decor::before {
-        display: none;
     }
 }
