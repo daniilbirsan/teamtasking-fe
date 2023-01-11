@@ -65,8 +65,41 @@ $pinkBrandPalete: (
     )
 );
 
+$blackBrandPalete: (
+    50: #e0e0e0,
+    100: #b3b3b3,
+    200: #808080,
+    300: #4d4d4d,
+    400: #262626,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #a6a6a6,
+    A200: #8c8c8c,
+    A400: #737373,
+    A700: #666666,
+    contrast: (50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: $black-87-opacity,
+        A200: $black-87-opacity,
+        A400: $black-87-opacity,
+        A700: white,
+    )
+);
+
 $my-app-primary: mat-palette($blueBrandPalete);
-$my-app-accent: mat-palette($pinkBrandPalete);
-$my-app-warn: mat-palette($mat-deep-orange);
+$my-app-accent: mat-palette($blackBrandPalete);
+$my-app-warn: mat-palette($pinkBrandPalete);
+
 $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 @include angular-material-theme($my-app-theme);
