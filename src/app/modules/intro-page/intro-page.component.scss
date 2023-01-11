@@ -44,7 +44,6 @@ $radius-panels: .9375rem;
 
             .decor-btn {
                 border-radius: $radius-panels;
-                background-color: $grey-1;
                 border: 2px solid $black;
                 padding: 1rem .5rem .3rem .5rem;
                 width: 70%;
@@ -123,7 +122,7 @@ $radius-panels: .9375rem;
     .dashboard {
         .images {
             div {
-                width: 100%;
+                width: 90%;
             }
         }
     }
