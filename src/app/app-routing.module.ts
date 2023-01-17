@@ -18,7 +18,6 @@ const routes: Routes = [
         (m) => m.DashboardModule
       ),
   },
-  { path: "sitemap.xml", redirectTo: "sitemap.xml", pathMatch: "full" },
   { path: "**", redirectTo: "" },
 ];
 
