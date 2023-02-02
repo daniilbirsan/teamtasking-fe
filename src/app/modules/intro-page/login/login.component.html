@@ -2,22 +2,37 @@
     <mat-card class="login-card">
         <mat-card-title>Welcome back</mat-card-title>
         <mat-card-content>Please enter your credentials.</mat-card-content>
-        <form class="form">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
             <mat-form-field color="accent" class="input">
                 <mat-label>Email Adress</mat-label>
-                <input type="email" matInput placeholder="Ex. name@example.com">
+                <input formControlName="email" type="email" matInput placeholder="Ex. name@example.com">
+                <mat-error *ngIf="email?.errors?.['email'] && !email?.errors?.['required']">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="!email?.errors?.['email']">
+                    Email is required
+                </mat-error>
             </mat-form-field>
             <mat-form-field color="accent" class="input">
                 <mat-label>Password</mat-label>
-                <input type="password" matInput placeholder="Write your password here">
+                <input formControlName="password" type="password" matInput placeholder="Write your password here">
+                <mat-error *ngIf="password?.errors?.['required']">
+                    Please enter your password
+                </mat-error>
             </mat-form-field>
             <div class="password-options">
                 <mat-checkbox>Remember for 30 days</mat-checkbox>
                 <p>Forgot password</p>
             </div>
-            <button type="button" mat-raised-button color="accent">Sign in</button>
+            <div class="btn-spinner">
+                <mat-spinner diameter="30" color="warn" *ngIf="isLoading; else isNotLoading"></mat-spinner>
+            </div>
+            <ng-template #isNotLoading>
+                <button type="submit" mat-raised-button color="accent">Sign in</button>
+            </ng-template>
             <div class="signup-method">
-                <mat-card-content>Don't have an account yet? <a routerLink="/signup" class="logo-marking">Sign up</a></mat-card-content>
+                <mat-card-content>Don't have an account yet? <a routerLink="/signup" class="logo-marking">Sign
+                        up</a></mat-card-content>
             </div>
         </form>
     </mat-card>

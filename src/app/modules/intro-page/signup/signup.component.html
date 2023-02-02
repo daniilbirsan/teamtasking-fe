@@ -2,24 +2,44 @@
     <mat-card class="signup-card">
         <mat-card-title>Get started</mat-card-title>
         <mat-card-content>Start your journey.</mat-card-content>
-        <form class="form">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
             <mat-form-field color="accent" class="input">
                 <mat-label>Email Adress</mat-label>
-                <input type="email" matInput placeholder="Ex. name@example.com">
+                <input formControlName="email" type="email" matInput placeholder="Ex. name@example.com">
+                <mat-error *ngIf="email?.errors?.['email'] && !email?.errors?.['required']">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="!email?.errors?.['email']">
+                    Email is required
+                </mat-error>
             </mat-form-field>
             <mat-form-field color="accent" class="input">
                 <mat-label>First Name</mat-label>
-                <input type="text" matInput placeholder="Ex. Joe">
+                <input formControlName="firstName" type="text" matInput placeholder="Ex. Joe">
+                <mat-error *ngIf="firstName?.errors?.['required']">
+                    Please provide your First Name
+                </mat-error>
             </mat-form-field>
             <mat-form-field color="accent" class="input">
                 <mat-label>Last Name</mat-label>
-                <input type="text" matInput placeholder="Ex. Doe">
+                <input formControlName="lastName" type="text" matInput placeholder="Ex. Doe">
+                <mat-error *ngIf="lastName?.errors?.['required']">
+                    Please provide your Last Name
+                </mat-error>
             </mat-form-field>
             <mat-form-field color="accent" class="input">
                 <mat-label>Password</mat-label>
-                <input type="password" name="password" matInput placeholder="Write a secure password">
+                <input formControlName="password" type="password" name="password" matInput placeholder="Write a secure password">
+                <mat-error *ngIf="password?.errors?.['required']">
+                    Please enter your password
+                </mat-error>
             </mat-form-field>
-            <button type="button" mat-raised-button color="accent">Create account</button>
+            <div class="btn-spinner">
+                <mat-spinner diameter="30" color="warn" *ngIf="isLoading; else isNotLoading"></mat-spinner>
+            </div>
+            <ng-template #isNotLoading>
+                <button type="submit" mat-raised-button color="accent">Create account</button>
+            </ng-template>
             <div class="login-method">
                 <mat-card-content>Already have an account? <a routerLink="/login" class="logo-marking">Log in</a></mat-card-content>
             </div>
